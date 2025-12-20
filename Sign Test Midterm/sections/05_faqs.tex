@@ -1,0 +1,96 @@
+% ==========================================
+% SECTION 5: FAQs
+% Thời lượng: 2 phút (2 slides)
+% ==========================================
+
+\subsection{Câu hỏi thường gặp}
+
+\begin{frame}[allowframebreaks,shrink=5]{FAQs - Câu hỏi Thường gặp (1/2)}
+    \footnotesize
+    
+    \textbf{Q1: Sign Test vs t-test - Khi nào dùng cái nào?}
+    
+    \begin{table}
+        \centering
+        \footnotesize
+        \begin{tabular}{p{4cm}|p{3.5cm}|p{3.5cm}}
+            \toprule
+            \textbf{Tiêu chí} & \textbf{Dùng Sign Test} & \textbf{Dùng t-test} \\
+            \midrule
+            Phân phối & Bất kỳ & Gần chuẩn \\
+            Outliers & \cellcolor{green!20}OK & \cellcolor{red!20}Nhạy cảm \\
+            Cỡ mẫu & n $\geq$ 10 & n $\geq$ 30 tốt hơn \\
+            Power & Thấp hơn 5-10\% & \cellcolor{green!20}Cao hơn \\
+            Quan tâm & Median & Mean \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
+    \vspace{0.15cm}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Q2: Tại sao loại bỏ hiệu = 0?}
+            \begin{itemize}\itemsep0pt
+                \item Không mang thông tin về hướng
+                \item Giảm n nhưng tăng độ chính xác
+                \item Standard practice trong Sign Test
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Q3: Sign Test có yếu hơn t-test?}
+            \begin{itemize}\itemsep0pt
+                \item \alert{Đúng!} Power thấp hơn nếu data chuẩn
+                \item Nhưng \structure{robust hơn nhiều} với vi phạm
+                \item Trade-off: Power vs Robustness
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[allowframebreaks,shrink=5]{FAQs - Câu hỏi Thường gặp (2/2)}
+    \footnotesize
+    
+    \textbf{Q4: Cỡ mẫu tối thiểu là bao nhiêu?}
+    \begin{itemize}\itemsep0pt
+        \item \textbf{Lý thuyết:} $n \geq 5$ (sau khi loại zeros)
+        \item \textbf{Thực tế:} $n \geq 10$ để p-value đáng tin cậy
+        \item \textbf{Khuyến nghị:} Càng lớn càng tốt! (như mọi test)
+    \end{itemize}
+    
+    \vspace{0.15cm}
+    
+    \textbf{Q5: Làm sao biết kết quả có ý nghĩa thực tế?}
+    \begin{itemize}\itemsep0pt
+        \item P-value chỉ nói về \alert{statistical significance}
+        \item Cần xem thêm:
+        \begin{itemize}\itemsep0pt
+            \item \structure{Effect size}: Bao nhiêu \% có dấu +?
+            \item \structure{Magnitude}: Hiệu số trung bình là bao nhiêu?
+            \item \structure{Context}: Có quan trọng trong thực tế không?
+        \end{itemize}
+    \end{itemize}
+    
+    \vspace{0.15cm}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Q6: Python có thư viện nào tốt?}
+            \begin{itemize}\itemsep0pt
+                \item \texttt{scipy.stats.binomtest} (recommended)
+                \item \texttt{statsmodels.stats}
+                \item Tự code cũng dễ!
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Q7: Sign Test cho >2 nhóm?}
+            \begin{itemize}\itemsep0pt
+                \item \alert{Không!} Chỉ cho 1 sample hoặc paired
+                \item Dùng \structure{Friedman test} cho $>2$ nhóm
+                \item Hoặc \structure{Cochran's Q} cho binary
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}

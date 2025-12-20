@@ -1,0 +1,152 @@
+\subsection{Sign Test trong Lịch sử}
+
+\begin{frame}[allowframebreaks]{Sign Test trong Lịch sử - John Arbuthnot (1710s)}
+    \footnotesize
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{John Arbuthnot (1667-1735)}
+            \begin{itemize}\itemsep0pt
+                \item Bác sĩ Hoàng gia Anh
+                \item Nhà toán học, nhà văn
+                \item Nghiên cứu: Tỷ lệ sinh nam/nữ ở London
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \textbf{Phát hiện đáng chú ý:}
+            \begin{itemize}\itemsep0pt
+                \item \alert{82 năm liên tiếp} (1629-1710)
+                \item Số trẻ em nam sinh > Số trẻ em nữ
+                \item Ngẫu nhiên hay có ý nghĩa?
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \textbf{Kết luận lịch sử:}
+            \begin{itemize}\itemsep0pt
+                \item Nếu ngẫu nhiên: $P = (1/2)^{82} \approx 10^{-25}$
+                \item → \alert{Bác bỏ giả thuyết ngẫu nhiên!}
+                \item Một trong những kiểm định đầu tiên
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.43\textwidth}
+            % SỬ DỤNG ẢNH TIMELINE HOẶC PORTRAIT CỦA BẠN TẠI ĐÂY
+            \centering
+            \includegraphics[width=\textwidth]{arbuthnot_timeline.png}
+            
+            \vspace{0.2cm}
+            \begin{alertblock}{Ý nghĩa}
+                \scriptsize
+                Ứng dụng sớm nhất của thống kê!
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.2cm}
+    \tiny{Nguồn: Arbuthnot, J. (1710). "An argument for Divine Providence..."}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Các Ứng dụng Lịch sử Nổi tiếng}
+    \footnotesize
+    
+    % SỬ DỤNG ẢNH LỊCH SỬ BẠN ĐÃ TẢI
+    \begin{center}
+        \includegraphics[height=3.5cm]{historical_applications.png}
+    \end{center}
+    
+    \vspace{0.2cm}
+    
+    \begin{columns}[T]
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Y học - 1747}
+                \scriptsize
+                \textbf{James Lind}\\
+                Điều trị bệnh Scurvy
+                \begin{itemize}\itemsep0pt
+                    \item 12 thủy thủ
+                    \item 6 phương pháp
+                    \item So sánh cam/chanh
+                \end{itemize}
+            \end{block}
+        \end{column}
+        
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Tâm lý - 1930s}
+                \scriptsize
+                \textbf{J.B. Rhine}\\
+                Thí nghiệm ngoại cảm
+                \begin{itemize}\itemsep0pt
+                    \item Đoán bài Zener
+                    \item Đúng/Sai?
+                    \item Kiểm tra ESP
+                \end{itemize}
+            \end{block}
+        \end{column}
+        
+        \begin{column}{0.32\textwidth}
+            \begin{block}{Kinh tế - 1960s}
+                \scriptsize
+                \textbf{Stock Analysis}\\
+                Dự đoán thị trường
+                \begin{itemize}\itemsep0pt
+                    \item Tăng/giảm?
+                    \item So với baseline
+                    \item Skilled vs random
+                \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Tại sao Sign Test quan trọng?}
+
+\begin{frame}[allowframebreaks]{Tại sao Sign Test vẫn Quan trọng Hôm nay?}
+    \footnotesize
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Ưu điểm vượt thời gian:}
+            \begin{enumerate}\itemsep0pt
+                \item \textcolor{hustred}{\textbf{Đơn giản}}
+                \begin{itemize}\itemsep0pt
+                    \item Chỉ đếm dấu +/-
+                    \item Dễ giải thích
+                \end{itemize}
+                \item \textcolor{hustred}{\textbf{Robust}}
+                \begin{itemize}\itemsep0pt
+                    \item Không sợ outliers
+                    \item Không cần chuẩn hóa
+                    \item OK với mẫu nhỏ
+                \end{itemize}
+                \item \textcolor{hustred}{\textbf{Linh hoạt}}
+                \begin{itemize}\itemsep0pt
+                    \item Áp dụng rộng
+                    \item Dữ liệu thứ bậc OK
+                \end{itemize}
+            \end{enumerate}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Ứng dụng hiện đại:}
+            
+            % VẼ TIKZ THAY VÌ ẢNH MODERN (DO THIẾU ẢNH TRONG FOLDER)
+            \begin{center}
+            \begin{tikzpicture}[
+                node distance=1cm,
+                app/.style={rectangle, draw=hustgreen, fill=green!10, rounded corners, align=center, font=\scriptsize, minimum width=2.5cm}
+            ]
+                \node[app] (mk) {Marketing (A/B)};
+                \node[app, below=0.3cm of mk] (med) {Clinical Trials};
+                \node[app, below=0.3cm of med] (ux) {User Experience};
+                \node[app, below=0.3cm of ux] (qc) {Quality Control};
+                
+                \node[right=0.5cm of med, font=\Huge, color=hustgreen] {$\checkmark$};
+            \end{tikzpicture}
+            \end{center}
+            
+            \vspace{0.15cm}
+            \begin{alertblock}{Mấu chốt}
+                \scriptsize
+                300+ năm tuổi nhưng vẫn hữu ích!
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}

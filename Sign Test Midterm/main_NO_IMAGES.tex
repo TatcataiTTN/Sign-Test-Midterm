@@ -1,0 +1,130 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage{tikz}
+\usepackage{calc}
+\usepackage{polyglossia}
+\setmainlanguage{vietnamese}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+
+\usepackage{multicol}
+
+\newtheorem{thm}{Định lý}
+\newtheorem{defn}{Định nghĩa}
+\setbeamertemplate{theorems}[numbered]
+
+%% TYPESET
+\makeatletter
+\newcommand{\leqnomode}{\tagsleft@true}
+\newcommand{\reqnomode}{\tagsleft@false}
+\makeatother
+
+% Custom commands
+\newcommand{\Image}[1]{%
+	\sbox0{\includegraphics[height=0.65\paperheight]{#1}}%
+	\ifdim\wd0 < \textwidth
+	\includegraphics[height=0.65\paperheight]{#1}%
+	\else
+	\includegraphics[width=\textwidth]{#1}%
+	\fi%
+}
+
+\newif\iffirsttoc
+\firsttoctrue
+
+\AtBeginSubsection[]
+{
+    \begin{frame}
+        \frametitle{Mục lục}   
+        \iffirsttoc
+            \tableofcontents[hideallsubsections]
+            \global\firsttocfalse
+        \else
+            \tableofcontents[currentsection,
+            subsectionstyle=show/shaded/hide,
+            subsubsectionstyle=show/show/show/hide
+            ]
+        \fi
+    \end{frame} 
+}
+\setbeamertemplate{caption}[numbered]
+
+% Load HUST theme (ensure beamerthemehust.sty is in the same directory)
+\usetheme{hust}
+\definecolor{hustgreen}{RGB}{34,139,34}
+
+\title{Kiểm định Dấu (Sign Test)}
+\subtitle{\textbf{Từ Lịch sử đến Thực hành với Python}}
+
+\author{
+Đào Duy Tân -- 20251334M\\
+    Nguyễn Đức Dũng -- 20251240M\\
+    Trương Tuấn Nghĩa -- 20251196M\\
+    Hồ Hải Anh - 20252102M\\
+    Đinh Lâm Nghị - 20241116M
+}
+\institute{
+    Môn: Thống kê Ứng dụng\\
+    Trường Đại học Bách Khoa Hà Nội
+}
+\date{Tháng 12, 2025}
+
+\begin{document}
+
+\begin{frame}[noframenumbering,Title]
+	\maketitle
+\end{frame}
+
+% MỤC LỤC
+\begin{frame}{Mục lục}
+    \tableofcontents
+\end{frame}
+
+% SECTION 1: LỊCH SỬ & ĐỘNG LỰC
+\section{Lịch sử \& Động lực}
+\input{sections/01_history_motivation.tex}
+
+% SECTION 2: LÝ THUYẾT CỐT LÕI
+\section{Lý thuyết Cốt lõi}
+\input{sections/02_theory.tex}
+% SECTION 3: VÍ DỤ THỰC TẾ
+\section{Ví dụ Thực tế}
+\input{sections/03_examples.tex}
+
+% SECTION 4: DEMO PYTHON
+\section{Demo Python/Jupyter}
+\input{sections/04_demo_jupyter.tex}
+% SECTION 5: FAQS
+\section{FAQs}
+\input{sections/05_faqs.tex}
+
+% SECTION 6: KẾT LUẬN
+\section{Kết luận}
+\input{sections/06_conclusion.tex}
+% SECTION 7: Q&A
+\section{Câu hỏi \& Trả lời}
+\input{sections/07_qna.tex}
+
+% Q&A SLIDE
+\begin{frame}[standout]
+    \begin{center}
+        \Huge \textcolor{hustred}{CÂU HỎI?}
+        
+        \vspace{1cm}
+        \normalsize
+        Cảm ơn các thầy cô và các bạn đã lắng nghe!
+        
+        \vspace{0.5cm}
+        \small
+        \textbf{Liên hệ:}\\
+        Trương Tuấn Nghĩa: nghia.tt251196m@sis.hust.edu.vn\\
+        GitHub: \url{https://github.com/yourusername/sign-test-demo}
+    \end{center}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,129 @@
+\subsection{Setup Demo}
+
+\begin{frame}[fragile]{Demo Setup - Ví dụ Thuốc giảm cân}
+    \footnotesize
+    \textbf{Bài toán:}
+    \begin{itemize}\itemsep0pt
+        \item 12 người tham gia thử nghiệm thuốc giảm cân
+        \item Đo cân nặng trước và sau 2 tháng sử dụng
+        \item Câu hỏi: Thuốc có hiệu quả không?
+    \end{itemize}
+    \vspace{0.15cm}
+    \textbf{Chuẩn bị Jupyter Notebook:}
+    \begin{lstlisting}[language=Python, caption=Cell 1: Import libraries]
+import numpy as np
+import pandas as pd
+from scipy.stats import binomtest
+import matplotlib.pyplot as plt
+
+# Du lieu: Can nang 12 nguoi
+data = {
+    'ID': range(1, 13),
+    'Truoc_kg': [85, 90, 78, 92, 88, 76, 95, 82, 79, 91, 87, 84],
+    'Sau_kg':   [82, 88, 79, 90, 85, 77, 93, 80, 78, 89, 86, 83]
+}
+
+df = pd.DataFrame(data)
+print(df.head())
+    \end{lstlisting}
+    \vspace{0.1cm}
+    
+    % ẢNH JUPYTER CELL 1
+    \includegraphics[width=0.7\textwidth]{jupyter_cell1_output.png}
+\end{frame}
+
+\subsection{Tính hiệu số và dấu}
+
+\begin{frame}[fragile]{Demo Step 1: Tính hiệu số và xác định dấu}
+    \footnotesize
+    \begin{lstlisting}[language=Python, caption=Cell 2: Calculate differences and signs]
+# Buoc 1: Tinh hieu (truoc - sau)
+df['Hieu_kg'] = df['Truoc_kg'] - df['Sau_kg']
+
+# Buoc 2: Xac dinh dau
+def assign_sign(x):
+    if x > 0: return '+'
+    elif x < 0: return '-'
+    else: return '0'
+
+df['Dau'] = df['Hieu_kg'].apply(assign_sign)
+df_filtered = df[df['Hieu_kg'] != 0]
+
+# Hien thi ket qua
+print(df_filtered[['ID', 'Truoc_kg', 'Sau_kg', 'Hieu_kg', 'Dau']])
+    \end{lstlisting}
+    \vspace{0.15cm}
+    
+    % ẢNH BẢNG KẾT QUẢ
+    \includegraphics[width=0.75\textwidth]{jupyter_output_table.png}
+\end{frame}
+
+\subsection{Thực hiện kiểm định}
+
+\begin{frame}[fragile]{Demo Step 2: Thống kê \& Kiểm định}
+    \footnotesize
+    \begin{lstlisting}[language=Python, caption=Cell 3: Perform Sign Test]
+# Dem so dau +
+n_plus = (df_filtered['Hieu_kg'] > 0).sum()
+n_total = len(df_filtered)
+print(f"So dau +: {n_plus}/{n_total}")
+
+# Kiem dinh Binomial (one-tailed: greater)
+result = binomtest(n_plus, n_total, p=0.5, alternative='greater')
+print(f"P-value: {result.pvalue:.4f}")
+
+# Ket luan
+alpha = 0.05
+if result.pvalue < alpha:
+    print(f"BAC BO H0 (p={result.pvalue:.4f} < {alpha})")
+    print("=> CO BANG CHUNG: Thuoc co hieu qua!")
+else:
+    print(f"GIU H0")
+    \end{lstlisting}
+    \vspace{0.2cm}
+    
+    % ẢNH KẾT QUẢ STATS
+    \includegraphics[width=0.6\textwidth]{jupyter_output_stats.png}
+\end{frame}
+
+\subsection{Trực quan hóa}
+
+\begin{frame}[fragile]{Demo Step 3: Visualization}
+    \footnotesize
+    \begin{columns}[T]
+        \begin{column}{0.58\textwidth}
+            \begin{lstlisting}[language=Python, caption=Cell 4: Visualize results, basicstyle=\ttfamily\tiny]
+fig, axes = plt.subplots(1, 2, figsize=(12, 5))
+
+# Plot 1: Scatter truoc vs sau
+ax1 = axes[0]
+ax1.scatter(df['Truoc_kg'], df['Sau_kg'], s=100)
+ax1.plot([75, 100], [75, 100], 'r--')
+ax1.set_xlabel('Truoc (kg)')
+ax1.set_ylabel('Sau (kg)')
+
+# Plot 2: Bar chart hieu so
+ax2 = axes[1]
+colors = ['green' if x > 0 else 'red' for x in df['Hieu_kg']]
+ax2.bar(df['ID'], df['Hieu_kg'], color=colors)
+ax2.axhline(0, color='black', lw=2)
+
+plt.tight_layout()
+plt.show()
+            \end{lstlisting}
+        \end{column}
+        \begin{column}{0.40\textwidth}
+            % ẢNH BIỂU ĐỒ
+            \includegraphics[width=\textwidth]{jupyter_plots.png}
+            
+            \vspace{0.15cm}
+            \begin{alertblock}{Insight từ plots}
+                \begin{itemize}\itemsep0pt
+                    \item Hầu hết điểm dưới đường chéo
+                    \item Đa số bars màu xanh (dương)
+                    \item Chỉ 2 người tăng cân
+                \end{itemize}
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+\end{frame}

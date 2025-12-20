@@ -1,0 +1,184 @@
+\documentclass[aspectratio=169, 10pt]{beamer}
+
+% =========================================================
+% 1. CÁC GÓI CẦN THIẾT
+% =========================================================
+\usepackage{tikz}
+\usetikzlibrary{shapes, arrows, positioning, shadows, calc} 
+\usepackage{polyglossia}
+\setmainlanguage{vietnamese}
+\usepackage{amsthm,amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{hyperref}
+\usepackage{listings} 
+\usepackage{multicol}
+
+% Định nghĩa lệnh PlaceholderImage để tránh lỗi nếu file con có dùng
+\newcommand{\PlaceholderImage}[3]{
+    \begin{center}
+        \includegraphics[width=#3, height=0.5\textheight, keepaspectratio]{#2}
+    \end{center}
+}
+
+% Cấu hình đường dẫn ảnh
+\graphicspath{{figures/}} 
+
+% =========================================================
+% 2. GIAO DIỆN MADRID + MÀU ĐỎ HUST (CHUẨN & KHÔNG LỖI)
+% =========================================================
+\usetheme{Madrid}      
+\useinnertheme{circles} 
+
+% Màu Đỏ Bách Khoa
+\definecolor{hustred}{RGB}{204,0,0}      
+\definecolor{hustdark}{RGB}{150,0,0}     
+\definecolor{hustgrey}{RGB}{245,245,245} 
+
+\setbeamercolor{palette primary}{bg=hustred,fg=white}
+\setbeamercolor{palette secondary}{bg=hustdark,fg=white}
+\setbeamercolor{palette tertiary}{bg=black!80,fg=white}
+\setbeamercolor{structure}{fg=hustred}   
+\setbeamercolor{title}{bg=hustred, fg=white}
+\setbeamercolor{frametitle}{bg=hustred, fg=white}
+\setbeamercolor{block title}{bg=hustred, fg=white}
+\setbeamercolor{block body}{bg=hustred!10, fg=black}
+
+% =========================================================
+% 3. CẤU HÌNH CODE
+% =========================================================
+\lstset{
+    basicstyle=\ttfamily\scriptsize,
+    keywordstyle=\color{blue}\bfseries,
+    stringstyle=\color{red},
+    commentstyle=\color{gray}\itshape,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{hustgrey},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    xleftmargin=10pt,
+}
+
+\newtheorem{thm}{Định lý}
+\newtheorem{defn}{Định nghĩa}
+\setbeamertemplate{theorems}[numbered]
+\setbeamertemplate{caption}[numbered]
+
+% --- QUAN TRỌNG: VÔ HIỆU HÓA HOÀN TOÀN CÁC TRANG ĐỆM ---
+% Lệnh này đảm bảo KHÔNG CÓ slide nào tự chèn vào giữa các phần
+\AtBeginSection[]{}
+\AtBeginSubsection[]{}
+
+% =========================================================
+% 4. THÔNG TIN METADATA
+% =========================================================
+\title{Kiểm định Dấu (Sign Test)}
+\subtitle{Từ Lịch sử đến Thực hành với Python}
+\author[Nhóm SV HUST]{GVHD: TS. Đoàn Phong Tùng} 
+\institute[SOICT]{Trường CNTT \& TT - Đại học Bách Khoa Hà Nội}
+\date{Tháng 12, 2025}
+
+\begin{document}
+
+% =========================================================
+% 5. TRANG BÌA (THIẾT KẾ RIÊNG - KHÔNG BAO GIỜ LỖI)
+% =========================================================
+\begin{frame}[plain]
+    \begin{tikzpicture}[remember picture,overlay]
+        % Dải màu đỏ trang trí bên trái
+        \fill[hustred] (current page.north west) rectangle ([xshift=1.2cm]current page.south west);
+    \end{tikzpicture}
+    
+    \hspace{1cm} 
+    \begin{minipage}{0.85\textwidth}
+        \centering
+        \vspace{0.3cm}
+        
+        \textsc{\small ĐẠI HỌC BÁCH KHOA HÀ NỘI}\\
+        \textbf{\scriptsize TRƯỜNG CÔNG NGHỆ THÔNG TIN VÀ TRUYỀN THÔNG (SOICT)}\\
+        \textbf{\scriptsize KHOA KỸ THUẬT MÁY TÍNH}
+        
+        \vspace{0.8cm}
+        
+        {\usebeamerfont{title}\textcolor{hustred}{\Huge \textbf{SIGN TEST}}}\\[0.2cm]
+        {\usebeamerfont{subtitle}\textcolor{black!70}{\large \textbf{Kiểm định Dấu: Từ Lịch sử đến Python}}}
+        
+        \vspace{0.8cm}
+        
+        {\large \textbf{GVHD: TS. Đoàn Phong Tùng}}
+        
+        \vspace{0.5cm}
+        
+        \textbf{Nhóm thực hiện:}\\
+        \vspace{0.1cm}
+        {\footnotesize
+        \renewcommand{\arraystretch}{1.2}
+        \begin{tabular}{rl}
+            \textbf{Đào Duy Tân} & 20251334M\\
+            \textbf{Nguyễn Đức Dũng} & 20251240M\\
+            \textbf{Trương Tuấn Nghĩa} & 20251196M\\
+            \textbf{Hồ Hải Anh} & 20252102M\\
+            \textbf{Đinh Lâm Nghị} & 20241116M
+        \end{tabular}
+        }
+        
+        \vfill
+        {\scriptsize Hà Nội, Tháng 12/2025}
+    \end{minipage}
+\end{frame}
+
+% =========================================================
+% 6. MỤC LỤC TỔNG QUAN (DUY NHẤT - KHÔNG TRÀN)
+% =========================================================
+% shrink=10: Tự động co nhỏ 10% nếu dài quá, ép vừa 1 trang
+\begin{frame}[shrink=10]{Mục lục Tổng quan}
+    \tableofcontents[hideallsubsections]
+\end{frame}
+
+% =========================================================
+% 7. NỘI DUNG CHÍNH (LIỀN MẠCH)
+% =========================================================
+
+\section{Lịch sử \& Động lực}
+\input{sections/01_history_motivation.tex}
+
+\section{Lý thuyết Cốt lõi}
+\input{sections/02_theory.tex}
+
+\section{Ví dụ Thực tế}
+\input{sections/03_examples.tex}
+
+\section{Demo Python/Jupyter}
+\input{sections/04_demo_jupyter.tex}
+
+\section{FAQs}
+\input{sections/05_faqs.tex}
+
+\section{Kết luận}
+\input{sections/06_conclusion.tex}
+
+\section{Câu hỏi \& Trả lời}
+\input{sections/07_qna.tex}
+
+% =========================================================
+% 8. KẾT THÚC
+% =========================================================
+\begin{frame}[standout]
+    \centering
+    \Huge \textcolor{white}{CÂU HỎI?}\\[1cm]
+    
+    \normalsize
+    \textcolor{white}{Cảm ơn Thầy và các bạn đã lắng nghe!}\\[0.5cm]
+    
+    \small
+    \textbf{Liên hệ:}\\
+    Trương Tuấn Nghĩa: nghia.tt251196m@sis.hust.edu.vn\\
+    GitHub: \url{https://github.com/yourusername/sign-test-demo}
+\end{frame}
+
+\end{document}

@@ -1,0 +1,129 @@
+\subsection{Sign Test là gì?}
+
+\begin{frame}[allowframebreaks]{Sign Test là gì?}
+    \footnotesize
+    \begin{defn}[Kiểm định Dấu - Sign Test]
+        Kiểm định phi tham số sử dụng \textbf{dấu (+/-)} để kiểm tra median hoặc so sánh mẫu phụ thuộc.
+    \end{defn}
+    \vspace{0.2cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Hai dạng chính:}
+            \textbf{1. One-sample}
+            \begin{itemize}\itemsep0pt
+                \item Kiểm tra: Median = $M_0$?
+                \item $H_0$: Median = $M_0$
+            \end{itemize}
+            \vspace{0.1cm}
+            \textbf{2. Paired}
+            \begin{itemize}\itemsep0pt
+                \item So sánh trước-sau
+                \item $H_0$: Median(Diff) = 0
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \begin{center}
+                % FIX: Dùng resizebox để ép ảnh vừa khít cột
+                \resizebox{\textwidth}{!}{%
+                \begin{tikzpicture}[
+                    box/.style={draw, rounded corners, fill=blue!10, align=center, minimum height=1cm, minimum width=2.5cm},
+                    arrow/.style={->, thick, >=stealth}]
+                    \node[box] (one) at (-2, 2) {\textbf{One-Sample}\\So với $M_0$};
+                    \node[box] (paired) at (2, 2) {\textbf{Paired}\\Trước vs Sau};
+                    \node[circle, draw, fill=orange!20, align=center] (sign) at (0, 0) {Xét dấu\\(+/-)};
+                    \draw[arrow] (one) -- (sign);
+                    \draw[arrow] (paired) -- (sign);
+                    \node[below of=sign, node distance=1.5cm] {\textbf{Cốt lõi:} Quy về nhị thức};
+                \end{tikzpicture}
+                }
+            \end{center}
+            \vspace{0.15cm}
+            \begin{block}{Ý tưởng}
+                \scriptsize
+                Nếu $H_0$ đúng: $S^+ \sim$ Binomial$(n, 0.5)$
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Nguyên lý hoạt động}
+
+\begin{frame}[allowframebreaks]{Nguyên lý Hoạt động - 4 Bước}
+    \footnotesize
+    \begin{columns}[T]
+        \begin{column}{0.45\textwidth}
+            % FIX: Resizebox cho flowchart
+            \resizebox{0.9\textwidth}{!}{%
+            \begin{tikzpicture}[node distance=1.2cm, 
+                step/.style={rectangle, draw, fill=green!10, text width=4cm, align=center, rounded corners}]
+                \node[step] (s1) {1. Tính hiệu số ($d_i$)};
+                \node[step, below of=s1] (s2) {2. Gán dấu (+, -, 0)};
+                \node[step, below of=s2] (s3) {3. Đếm $S^+$ (Loại bỏ 0)};
+                \node[step, below of=s3, fill=red!10] (s4) {4. Kiểm định (Binomial)};
+                \draw[->, thick] (s1) -- (s2);
+                \draw[->, thick] (s2) -- (s3);
+                \draw[->, thick] (s3) -- (s4);
+            \end{tikzpicture}
+            }
+        \end{column}
+        
+        \begin{column}{0.53\textwidth}
+            \begin{enumerate}\itemsep0pt
+                \item \textbf{Tính hiệu số}
+                \begin{itemize}\itemsep0pt
+                    \item One: $d_i = X_i - M_0$
+                    \item Paired: $d_i = X_i - Y_i$
+                \end{itemize}
+                \item \textbf{Xác định dấu}
+                \begin{itemize}\itemsep0pt
+                    \item $d_i > 0$ → $S^+$
+                    \item $d_i < 0$ → $S^-$
+                    \item $d_i = 0$ → Loại
+                \end{itemize}
+                \item \textbf{Thống kê}
+                \begin{itemize}\itemsep0pt
+                    \item $S^+ \sim$ Binom$(n, 0.5)$
+                \end{itemize}
+                \item \textbf{P-value}
+                \begin{itemize}\itemsep0pt
+                    \item So với $\alpha = 0.05$
+                \end{itemize}
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Giả thuyết \& Công thức}
+
+\begin{frame}[allowframebreaks,shrink=5]{Giả thuyết \& Công thức}
+    \footnotesize
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Cặp giả thuyết:}
+            \begin{block}{Hypotheses}
+                \scriptsize
+                \begin{itemize}\itemsep0pt
+                    \item $H_0$: Median$(D) = 0$
+                    \item $H_1$: Median$(D) \neq 0$ (2-tailed)
+                \end{itemize}
+            \end{block}
+            \vspace{0.15cm}
+            \textbf{Mức ý nghĩa:} $\alpha = 0.05$
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Thống kê:}
+            \begin{block}{Test Statistic}
+                \scriptsize
+                $$S^+ \sim \text{Binomial}(n, 0.5)$$
+            \end{block}
+            \vspace{0.15cm}
+            \textbf{Quyết định:}
+            \begin{itemize}\itemsep0pt
+                \item \textcolor{hustred}{p < $\alpha$} → Bác bỏ $H_0$
+                \item \textcolor{hustgreen}{p $\geq \alpha$} → Giữ $H_0$
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}

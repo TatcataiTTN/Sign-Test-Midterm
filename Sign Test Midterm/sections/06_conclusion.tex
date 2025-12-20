@@ -1,0 +1,77 @@
+% ==========================================
+% SECTION 6: KẾT LUẬN
+% Thời lượng: 1-2 phút (2 slides)
+% ==========================================
+
+\subsection{Tóm tắt}
+
+\begin{frame}[allowframebreaks,shrink=5]{Take-home Messages}
+    \footnotesize
+    
+    \begin{block}{1. Sign Test = Simple but Powerful}
+        \begin{itemize}\itemsep0pt
+            \item 300+ năm lịch sử, vẫn cực kỳ hữu ích
+            \item Dễ hiểu, dễ thực hiện
+            \item Không cần giả định phức tạp
+        \end{itemize}
+    \end{block}
+    
+    \vspace{0.2cm}
+    
+    \begin{block}{2. Khi nào nên dùng Sign Test?}
+        \begin{itemize}\itemsep0pt
+            \item \checkmark Dữ liệu \textbf{không phân phối chuẩn}
+            \item \checkmark Có \textbf{outliers} hoặc extreme values
+            \item \checkmark Quan tâm đến \textbf{median} hơn mean
+            \item \checkmark Mẫu nhỏ (n = 10-30)
+            \item \checkmark Cần phương pháp \textbf{robust}
+        \end{itemize}
+    \end{block}
+    
+    \vspace{0.2cm}
+    
+    \begin{block}{3. Python makes it easy!}
+        \begin{itemize}\itemsep0pt
+            \item Chỉ cần \texttt{scipy.stats.binomtest}
+            \item Hiểu logic → Code 5 dòng
+            \item Demo trong Jupyter Notebook rất trực quan
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\subsection{Tài liệu tham khảo}
+
+\begin{frame}[allowframebreaks,shrink=5]{Tài liệu Tham khảo \& Học thêm}
+    \footnotesize
+    
+    \textbf{Sách giáo khoa:}
+    \begin{itemize}\itemsep0pt
+        \item Hollander, M., Wolfe, D. A., \& Chicken, E. (2013). \textit{Nonparametric Statistical Methods} (3rd ed.). Wiley.
+        \item Gibbons, J. D., \& Chakraborti, S. (2020). \textit{Nonparametric Statistical Inference} (6th ed.). CRC Press.
+        \item Daniel, W. W. (2000). \textit{Applied Nonparametric Statistics} (2nd ed.). Duxbury Press.
+    \end{itemize}
+    
+    \vspace{0.15cm}
+    
+    \textbf{Tài liệu online:}
+    \begin{itemize}\itemsep0pt
+        \item SciPy Documentation: \url{https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.binomtest.html}
+        \item Statistics How To: \url{https://www.statisticshowto.com/sign-test/}
+        \item Penn State STAT 415: \url{https://online.stat.psu.edu/stat415/}
+    \end{itemize}
+    
+    \vspace{0.15cm}
+    
+    \textbf{Lịch sử:}
+    \begin{itemize}\itemsep0pt
+        \item Arbuthnot, J. (1710). "An argument for Divine Providence, taken from the constant Regularity observ'd in the Births of both Sexes". \textit{Philosophical Transactions}, 27, 186-190.
+    \end{itemize}
+    
+    \vspace{0.15cm}
+    
+    \begin{alertblock}{GitHub Repository}
+        Code \& Notebooks: \url{https://github.com/yourusername/sign-test-demo}
+        
+        \PlaceholderImage{QR code link đến GitHub repo}{qr_code_github.png}{0.15\textwidth}
+    \end{alertblock}
+\end{frame}

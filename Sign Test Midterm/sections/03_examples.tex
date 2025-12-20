@@ -1,0 +1,155 @@
+\subsection{Ví dụ Y học}
+
+\begin{frame}[allowframebreaks,shrink=5]{Ví dụ 1: Y học - Thuốc giảm đau}
+    % (GIỮ NGUYÊN NỘI DUNG VÌ DÙNG TABLE)
+    \footnotesize
+    \textbf{Bối cảnh:}
+    \begin{itemize}\itemsep0pt
+        \item 10 bệnh nhân bị đau mãn tính
+        \item Đo điểm đau (VAS scale 0-10) trước và sau dùng thuốc mới
+        \item \textbf{Câu hỏi:} Thuốc có giảm đau không?
+    \end{itemize}
+    \vspace{0.15cm}
+    \begin{columns}[T]
+        \begin{column}{0.55\textwidth}
+            \textbf{Dữ liệu:}
+            \begin{table}
+                \centering
+                \footnotesize
+                \begin{tabular}{ccccl}
+                    \toprule
+                    \textbf{ID} & \textbf{Trước} & \textbf{Sau} & \textbf{Hiệu} & \textbf{Dấu} \\
+                    \midrule
+                    1 & 8 & 6 & +2 & \textcolor{hustgreen}{+} \\
+                    2 & 7 & 7 & 0 & \textcolor{gray}{(loại)} \\
+                    3 & 9 & 5 & +4 & \textcolor{hustgreen}{+} \\
+                    4 & 6 & 5 & +1 & \textcolor{hustgreen}{+} \\
+                    5 & 8 & 7 & +1 & \textcolor{hustgreen}{+} \\
+                    6 & 7 & 8 & -1 & \textcolor{red}{-} \\
+                    7 & 9 & 6 & +3 & \textcolor{hustgreen}{+} \\
+                    8 & 8 & 6 & +2 & \textcolor{hustgreen}{+} \\
+                    9 & 7 & 5 & +2 & \textcolor{hustgreen}{+} \\
+                    10 & 9 & 7 & +2 & \textcolor{hustgreen}{+} \\
+                    \bottomrule
+                \end{tabular}
+            \end{table}
+        \end{column}
+        \begin{column}{0.43\textwidth}
+            \textbf{Phân tích:}
+            \begin{itemize}\itemsep0pt
+                \item Loại bỏ ID 2 (hiệu = 0)
+                \item $n = 9$ (sau loại ties)
+                \item $S^+ = 8$ (số dấu +)
+                \item $S^- = 1$ (số dấu -)
+            \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Kiểm định:}
+            \begin{itemize}\itemsep0pt
+                \item $H_0$: Thuốc không hiệu quả
+                \item $H_1$: Thuốc giảm đau (one-tailed)
+                \item $\alpha = 0.05$
+            \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Kết quả:}
+            \begin{itemize}\itemsep0pt
+                \item p-value = \textbf{0.039}
+                \item \alert{0.039 < 0.05}
+                \item → \textcolor{hustred}{\textbf{Bác bỏ $H_0$}}
+                \item Có bằng chứng thuốc hiệu quả!
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Ví dụ Marketing}
+
+\begin{frame}[allowframebreaks,shrink=5]{Ví dụ 2: Marketing - A/B Testing Website}
+    \footnotesize
+    \textbf{Tình huống:}
+    \begin{itemize}\itemsep0pt
+        \item Công ty test 2 giao diện website (A vs B)
+        \item 15 người dùng test cả 2 phiên bản
+        \item Đánh giá mức độ hài lòng (1-5 sao)
+        \item \textbf{Câu hỏi:} Giao diện B có tốt hơn A không?
+    \end{itemize}
+    \vspace{0.15cm}
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            % SỬ DỤNG ẢNH A/B TEST
+            \includegraphics[width=\textwidth]{ab_testing_comparison.png}
+        \end{column}
+        \begin{column}{0.46\textwidth}
+            \textbf{Dữ liệu tóm tắt:}
+            \begin{itemize}\itemsep0pt
+                \item Số người thích B hơn A: \alert{11}
+                \item Số người thích A hơn B: 3
+                \item Số người không phân biệt: 1 (loại)
+                \item $n = 14$ (sau loại ties)
+            \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Sign Test:}
+            \begin{itemize}\itemsep0pt
+                \item $S^+ = 11$ (thích B hơn)
+                \item p-value = \textbf{0.059} (two-tailed)
+            \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Quyết định:}
+            \begin{itemize}\itemsep0pt
+                \item Với $\alpha = 0.05$: \textcolor{orange}{Chưa đủ bằng chứng} (biên giới!)
+                \item Với $\alpha = 0.10$: \textcolor{hustgreen}{Có bằng chứng} B tốt hơn
+                \item → Có thể cần thêm dữ liệu
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\subsection{Ví dụ Tâm lý học}
+
+\begin{frame}[allowframebreaks,shrink=5]{Ví dụ 3: Tâm lý - Nghiên cứu Sở thích Màu sắc}
+    \footnotesize
+    \textbf{Câu hỏi nghiên cứu:}
+    \begin{itemize}\itemsep0pt
+        \item Người ta có thích màu xanh hơn màu đỏ không?
+        \item (So với ngẫu nhiên 50-50)
+    \end{itemize}
+    \vspace{0.15cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Thiết kế nghiên cứu:}
+            \begin{itemize}\itemsep0pt
+                \item 20 người tham gia
+                \item 10 items (vật phẩm)
+                \item Mỗi item: Chọn 1 trong 2 màu
+                \item Đếm số lần chọn màu xanh
+            \end{itemize}
+            \vspace{0.15cm}
+            \textbf{Kết quả:}
+            \begin{itemize}\itemsep0pt
+                \item 14/20 người chọn xanh nhiều hơn đỏ
+                \item 6/20 người chọn đỏ nhiều hơn xanh
+                \item Không có ties (ai cũng có preference)
+            \end{itemize}
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            % SỬ DỤNG ẢNH COLOR PREFERENCE
+            \includegraphics[width=\textwidth]{color_preference.png}
+            
+            \vspace{0.15cm}
+            \textbf{Phân tích Sign Test:}
+            \begin{itemize}\itemsep0pt
+                \item $H_0$: Không có preference ($p = 0.5$)
+                \item $H_1$: Có preference ($p \neq 0.5$)
+                \item $S^+ = 14$, $n = 20$
+                \item Under $H_0$: $S^+ \sim \text{Binomial}(20, 0.5)$
+            \end{itemize}
+            \vspace{0.2cm}
+            \textbf{Kết luận:}
+            \begin{itemize}\itemsep0pt
+                \item p-value = \textbf{0.115} (two-tailed)
+                \item $0.115 > 0.05$
+                \item → \textcolor{hustgreen}{Giữ $H_0$}
+                \item Không có preference rõ ràng
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}

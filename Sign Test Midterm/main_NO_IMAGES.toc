@@ -1,0 +1,24 @@
+\xpg@aux {}{vietnamese}
+\beamer@sectionintoc {1}{Lịch sử \& Động lực}{3}{0}{1}
+\beamer@subsectionintoc {1}{1}{Sign Test trong Lịch sử}{3}{0}{1}
+\beamer@subsectionintoc {1}{2}{Tại sao Sign Test quan trọng?}{6}{0}{1}
+\beamer@sectionintoc {2}{Lý thuyết Cốt lõi}{8}{0}{2}
+\beamer@subsectionintoc {2}{1}{Sign Test là gì?}{8}{0}{2}
+\beamer@subsectionintoc {2}{2}{Nguyên lý hoạt động}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Giả thuyết \& Công thức}{12}{0}{2}
+\beamer@sectionintoc {3}{Ví dụ Thực tế}{15}{0}{3}
+\beamer@subsectionintoc {3}{1}{Ví dụ Y học}{15}{0}{3}
+\beamer@subsectionintoc {3}{2}{Ví dụ Marketing}{18}{0}{3}
+\beamer@subsectionintoc {3}{3}{Ví dụ Tâm lý học}{21}{0}{3}
+\beamer@sectionintoc {4}{Demo Python/Jupyter}{24}{0}{4}
+\beamer@subsectionintoc {4}{1}{Setup Demo}{24}{0}{4}
+\beamer@subsectionintoc {4}{2}{Tính hiệu số và dấu}{26}{0}{4}
+\beamer@subsectionintoc {4}{3}{Thực hiện kiểm định}{28}{0}{4}
+\beamer@subsectionintoc {4}{4}{Trực quan hóa}{30}{0}{4}
+\beamer@sectionintoc {5}{FAQs}{32}{0}{5}
+\beamer@subsectionintoc {5}{1}{Câu hỏi thường gặp}{32}{0}{5}
+\beamer@sectionintoc {6}{Kết luận}{37}{0}{6}
+\beamer@subsectionintoc {6}{1}{Tóm tắt}{37}{0}{6}
+\beamer@subsectionintoc {6}{2}{Tài liệu tham khảo}{40}{0}{6}
+\beamer@sectionintoc {7}{Câu hỏi \& Trả lời}{43}{0}{7}
+\beamer@subsectionintoc {7}{1}{Câu hỏi dự kiến}{43}{0}{7}

@@ -1,0 +1,462 @@
+% =========================================
+% SECTION 7: CÂU HỎI & TRẢ LỜI (FULL DETAIL + INTERACTIVE)
+% =========================================
+
+\subsection{Danh sách câu hỏi}
+
+% --- MENU CHÍNH (MỤC LỤC CÂU HỎI) ---
+% Slide này dùng để chọn câu hỏi
+\begin{frame}[label=qna_menu, shrink=5]{Danh sách Câu hỏi Thảo luận}
+    \vspace{0.2cm}
+    \textit{Bấm vào câu hỏi để xem chi tiết:}
+    \vspace{0.2cm}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}\itemsep8pt
+                \item[\textbf{Q1.}] \hyperlink{q1}{\textbf{So sánh:} Sign Test vs Wilcoxon Signed-Rank?}
+                \item[\textbf{Q2.}] \hyperlink{q2}{\textbf{Xử lý số liệu:} Tại sao loại bỏ Ties (0)?}
+                \item[\textbf{Q3.}] \hyperlink{q3}{\textbf{Dữ liệu:} Dùng cho Likert scale được không?}
+                \item[\textbf{Q4.}] \hyperlink{q4}{\textbf{Cỡ mẫu:} Vấn đề khi mẫu nhỏ (n < 10)?}
+                \item[\textbf{Q5.}] \hyperlink{q5}{\textbf{Báo cáo:} Viết kết quả chuẩn academic?}
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \begin{itemize}\itemsep8pt
+                \item[\textbf{Q6.}] \hyperlink{q6}{\textbf{Nâng cao:} Multiple comparisons correction?}
+                \item[\textbf{Q7.}] \hyperlink{q7}{\textbf{Công cụ:} Các thư viện Python/R/SPSS?}
+                \item[\textbf{Q8.}] \hyperlink{q8}{\textbf{Giả định:} Assumptions nào bắt buộc?}
+                \item[\textbf{Q9.}] \hyperlink{q9}{\textbf{Hiệu năng:} Power Analysis \& Sample Size?}
+                \item[\textbf{Q10.}] \hyperlink{q10}{\textbf{Mở rộng:} Các biến thể (McNemar, Friedman)?}
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% =========================================
+% CÁC SLIDE CHI TIẾT (KHÔI PHỤC NỘI DUNG GỐC)
+% =========================================
+
+% --- Q1 ---
+\begin{frame}[allowframebreaks, label=q1]{Q1: So sánh Sign Test vs Wilcoxon}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Sign Test khác với Wilcoxon Signed-Rank Test như thế nào? Khi nào nên dùng cái nào?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Trả lời chi tiết:}
+    
+    \begin{table}
+        \centering
+        \tiny
+        \begin{tabular}{p{2.5cm}|p{3.5cm}|p{3.5cm}}
+            \toprule
+            \textbf{Tiêu chí} & \textbf{Sign Test} & \textbf{Wilcoxon} \\
+            \midrule
+            Thông tin sử dụng & Chỉ dấu (+/-) & Dấu + Độ lớn (Rank) \\
+            Power & Thấp hơn (khoảng 64\% của t-test) & Cao hơn (khoảng 95\% của t-test) \\
+            Assumptions & \cellcolor{green!20}Ít nhất (chỉ cần độc lập) & Thêm: phân phối đối xứng (symmetric) \\
+            Dễ hiểu & \cellcolor{green!20}Rất trực quan & Phức tạp hơn về tính toán \\
+            Khi nào dùng & Dữ liệu rất lệch, nhiều Outliers & Dữ liệu gần đối xứng \\
+            \bottomrule
+        \end{tabular}
+    \end{table}
+    
+    \vspace{0.2cm}
+    \structure{\textbf{Khuyến nghị:}}
+    \begin{itemize}\itemsep0pt
+        \item \textbf{Sign Test:} Khi dữ liệu rất "ồn" (noisy), nhiều giá trị ngoại lai cực đoan, hoặc chỉ quan tâm đến hướng thay đổi.
+        \item \textbf{Wilcoxon:} Khi dữ liệu tương đối đối xứng và muốn đạt độ mạnh (power) cao hơn.
+    \end{itemize}
+
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{\icon{list} Quay lại Menu}}
+\end{frame}
+
+% --- Q2 ---
+\begin{frame}[allowframebreaks, label=q2]{Q2: Xử lý Ties (Hiệu số = 0)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Nếu có nhiều hiệu số bằng 0, có ảnh hưởng gì không? Có cách xử lý nào khác?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Trả lời:}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Ảnh hưởng của ties:}
+            \begin{itemize}\itemsep0pt
+                \item Giảm kích thước mẫu hiệu dụng (Effective sample size).
+                \item Giảm sức mạnh thống kê (Statistical power).
+                \item \alert{Cảnh báo:} Nếu > 20\% dữ liệu là ties thì kết quả có thể thiếu tin cậy.
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \textbf{Phương pháp xử lý:}
+            \begin{enumerate}\itemsep0pt
+                \item \structure{Standard:} Loại bỏ hoàn toàn (Khuyên dùng).
+                \item Chia đều: Một nửa vào nhóm (+), một nửa vào nhóm (-).
+                \item Random assign: Gán ngẫu nhiên dấu.
+            \end{enumerate}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Ví dụ minh họa:}
+            
+            Tổng n = 20, có 5 ties (25\% số liệu là 0)
+            
+            \begin{itemize}\itemsep0pt
+                \item \structure{Cách 1 (Loại):} Phân tích với $n = 15$.
+                \item \structure{Cách 2 (Chia):} Tính 2.5 cho (+) và 2.5 cho (-).
+                \item \structure{Cách 3 (Random):} Tung xu cho 5 trường hợp đó.
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \begin{alertblock}{Lưu ý}
+                Cách 1 (loại bỏ) là "standard practice" trong hầu hết các phần mềm thống kê (SPSS, R, Python).
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q3 ---
+\begin{frame}[allowframebreaks, label=q3]{Q3: Áp dụng cho data thứ bậc (Likert Scale)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Sign Test có thể dùng cho dữ liệu thứ bậc (ordinal) như Likert scale (1-5) không?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Trả lời: ĐÚNG!} Sign Test cực kỳ phù hợp cho ordinal data.
+    
+    \vspace{0.15cm}
+    \textbf{Ví dụ - Khảo sát hài lòng:}
+    
+    \begin{columns}[T]
+        \begin{column}{0.52\textwidth}
+            \textbf{Thiết kế:}
+            \begin{itemize}\itemsep0pt
+                \item Survey trước và sau cải tiến dịch vụ.
+                \item Scale: 1 (Rất tệ) $\to$ 5 (Rất tốt).
+                \item So sánh: Điểm Trước vs Điểm Sau.
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \textbf{Phân tích:}
+            \begin{itemize}\itemsep0pt
+                \item Sau > Trước (VD: 3 lên 4) $\to$ Dấu (+)
+                \item Sau < Trước (VD: 5 xuống 2) $\to$ Dấu (-)
+                \item Sau = Trước $\to$ Loại
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.46\textwidth}
+            \textbf{Tại sao phù hợp?}
+            \begin{enumerate}\itemsep0pt
+                \item Likert scale là ordinal, khoảng cách giữa 1-2 chưa chắc bằng 4-5.
+                \item T-test yêu cầu tính Mean (cộng trừ), điều này không chặt chẽ với Likert.
+                \item Sign Test chỉ cần thứ tự (lớn hơn/nhỏ hơn), không cần đo khoảng cách.
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q4 ---
+\begin{frame}[allowframebreaks, label=q4]{Q4: Vấn đề với Sample size nhỏ}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Với n = 6 hoặc n = 7, Sign Test có đáng tin không? Cần làm gì?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Trả lời:}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Vấn đề "Bước nhảy" P-value:}
+            \begin{itemize}\itemsep0pt
+                \item Do phân phối nhị thức là rời rạc.
+                \item P-values sẽ "nhảy" qua các mốc, khó đạt chính xác 0.05.
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \textbf{Ví dụ thực tế với n=6:}
+            \begin{itemize}\itemsep0pt
+                \item Nếu 5 dấu (+): p = 0.219 (Quá lớn)
+                \item Nếu 6 dấu (+): p = 0.031 (Nhỏ hơn 0.05)
+                \item Không có p-value nào nằm giữa 0.031 và 0.219!
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Giải pháp:}
+            \begin{enumerate}\itemsep0pt
+                \item \structure{Exact test:} Luôn dùng Binomial Exact (không dùng xấp xỉ chuẩn).
+                \item \structure{Report exact p:} Báo cáo p-value chính xác thay vì chỉ nói < 0.05.
+                \item \structure{Power:} Chấp nhận rằng power sẽ rất thấp.
+                \item \structure{Data:} Cố gắng thu thập thêm mẫu nếu có thể (ít nhất n=10).
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q5 ---
+\begin{frame}[allowframebreaks, label=q5]{Q5: Báo cáo kết quả (Reporting)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Khi viết báo cáo khoa học hoặc luận văn, cần trình bày những thông số gì?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Checklist thông tin cần thiết:}
+    
+    \begin{enumerate}\itemsep0pt
+        \item \textbf{Sample size:}
+        \begin{itemize}\itemsep0pt
+            \item Tổng số quan sát ban đầu ($N$).
+            \item Số ties bị loại bỏ.
+            \item Kích thước mẫu hiệu dụng ($n$).
+        \end{itemize}
+        
+        \item \textbf{Test statistic:}
+        \begin{itemize}\itemsep0pt
+            \item Số lượng dấu dương ($S^+$) và dấu âm ($S^-$).
+            \item Tỷ lệ phần trăm (VD: 80\% cải thiện).
+        \end{itemize}
+        
+        \item \textbf{P-value:}
+        \begin{itemize}\itemsep0pt
+            \item Giá trị chính xác (VD: p = 0.033).
+            \item Ghi rõ là One-tailed (1 phía) hay Two-tailed (2 phía).
+        \end{itemize}
+    \end{enumerate}
+    
+    \vspace{0.2cm}
+    \textbf{Ví dụ câu viết mẫu (Standard Reporting):}
+    \begin{quote}
+        \scriptsize
+        "A Sign test was conducted to evaluate the effect of the new treatment. Of 12 participants, 1 showed no change and was excluded (effective n=11). Nine participants (81.8\%) showed improvement, compared to 2 (18.2\%) who worsened. The exact one-tailed Sign test indicated a significant improvement (p = 0.033), suggesting the treatment is effective."
+    \end{quote}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q6 ---
+\begin{frame}[allowframebreaks, label=q6]{Q6: Multiple Comparisons}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Nếu thực hiện nhiều Sign Tests (ví dụ: test 5 loại thuốc khác nhau trên cùng 1 nhóm), có cần điều chỉnh gì không?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Trả lời: CẦN!} Đây là vấn đề kiểm định đa giả thuyết.
+    
+    \vspace{0.15cm}
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Vấn đề:}
+            \begin{itemize}\itemsep0pt
+                \item Khi làm $k$ tests độc lập với $\alpha = 0.05$.
+                \item Xác suất mắc ít nhất 1 lỗi loại 1 (False Positive) tăng lên chóng mặt.
+                \item Công thức: $P(\text{Error}) = 1 - 0.95^k$.
+                \item Với 5 tests: $1 - 0.95^5 \approx 22.6\%$ (Rất cao!).
+            \end{itemize}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Giải pháp Correction:}
+            \begin{enumerate}\itemsep0pt
+                \item \structure{Bonferroni:} Chia nhỏ $\alpha$.
+                $$ \alpha_{new} = \frac{0.05}{5} = 0.01 $$
+                (Khá bảo thủ, khó đạt ý nghĩa thống kê).
+                
+                \item \structure{Holm-Bonferroni:} Mạnh hơn Bonferroni, điều chỉnh theo từng bước (Sequential).
+                
+                \item \structure{FDR (Benjamini-Hochberg):} Kiểm soát tỷ lệ phát hiện sai, thường dùng trong Gen/Y sinh.
+            \end{enumerate}
+        \end{column}
+    \end{columns}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q7 ---
+\begin{frame}[allowframebreaks, label=q7]{Q7: Công cụ thực hiện (Software Implementation)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Có thư viện nào khác ngoài scipy.stats để làm Sign Test không? R và SPSS thì sao?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Tổng hợp các công cụ phổ biến:}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Python:}
+            \begin{enumerate}\itemsep0pt
+                \item \texttt{scipy.stats.binomtest} (\alert{Khuyến nghị nhất} - Chuẩn xác).
+                \item \texttt{statsmodels.stats.descriptivestats.sign\_test} (Trả về statistic và p-value).
+                \item \texttt{pingouin.sign\_test} (Giao diện thân thiện kiểu Pandas).
+            \end{enumerate}
+            
+            \vspace{0.15cm}
+            \textbf{R Language:}
+            \begin{enumerate}\itemsep0pt
+                \item \texttt{binom.test()} (Base R).
+                \item \texttt{SIGN.test()} (Gói BSDA).
+                \item \texttt{SignTest()} (Gói DescTools).
+            \end{enumerate}
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Phần mềm thống kê (GUI):}
+            
+            \begin{itemize}\itemsep0pt
+                \item \textbf{SPSS:} Menu: Analyze $\to$ Nonparametric Tests $\to$ Legacy Dialogs $\to$ 2 Related Samples $\to$ Tick chọn "Sign".
+                \item \textbf{SAS:} Dùng \texttt{PROC FREQ} với tùy chọn binomial.
+                \item \textbf{Stata:} Dùng lệnh \texttt{signtest var1 = var2}.
+            \end{itemize}
+            
+            \vspace{0.15cm}
+            \begin{alertblock}{Tip}
+                Dù dùng công cụ nào, hãy đảm bảo bạn đang xem \textbf{Exact P-value} chứ không phải Asymptotic (xấp xỉ).
+            \end{alertblock}
+        \end{column}
+    \end{columns}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q8 ---
+\begin{frame}[allowframebreaks, label=q8]{Q8: Kiểm tra Giả định (Assumptions)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Sign Test là phi tham số (nonparametric) nhưng có assumptions nào cần check không?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Các giả định BẮT BUỘC:}
+    
+    \begin{enumerate}\itemsep0pt
+        \item \textbf{Independence (Quan trọng nhất):}
+        \begin{itemize}\itemsep0pt
+            \item Các cặp quan sát phải độc lập với nhau.
+            \item Ví dụ: Không thể đo 1 người 10 lần rồi coi là 10 mẫu độc lập.
+            \item Nếu vi phạm $\to$ Test hoàn toàn sai.
+        \end{itemize}
+        
+        \item \textbf{Random Sampling:}
+        \begin{itemize}\itemsep0pt
+            \item Mẫu phải đại diện cho tổng thể (không bị bias).
+        \end{itemize}
+        
+        \item \textbf{Dữ liệu so sánh được:}
+        \begin{itemize}\itemsep0pt
+            \item Biến số phải là Continuous (Liên tục) hoặc Ordinal (Thứ bậc).
+            \item Không dùng cho dữ liệu Định danh (Nominal) chưa có thứ tự.
+        \end{itemize}
+    \end{enumerate}
+    
+    \vspace{0.2cm}
+    \textbf{Những điều KHÔNG cần (Ưu điểm):}
+    \begin{itemize}\itemsep0pt
+        \item \checkmark KHÔNG cần phân phối chuẩn (Normality).
+        \item \checkmark KHÔNG cần phương sai đồng nhất (Homogeneity of variance).
+        \item \checkmark KHÔNG cần mẫu lớn.
+    \end{itemize}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q9 ---
+\begin{frame}[allowframebreaks, label=q9]{Q9: Power Analysis \& Sample Size}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Làm sao tính sample size cần thiết cho Sign Test? Power là bao nhiêu?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Power phụ thuộc vào 3 yếu tố:}
+    \begin{enumerate}\itemsep0pt
+        \item Sample size ($n$).
+        \item Effect size (Tỷ lệ thực sự của dấu + trong quần thể, gọi là $P_{real}$).
+        \item Mức ý nghĩa $\alpha$ (thường là 0.05).
+    \end{enumerate}
+    
+    \vspace{0.15cm}
+    
+    \begin{columns}[T]
+        \begin{column}{0.48\textwidth}
+            \textbf{Ví dụ tính toán:}
+            \begin{itemize}\itemsep0pt
+                \item Giả thuyết $H_0: P = 0.5$.
+                \item Thực tế thuốc tốt, $P_{real} = 0.7$ (70\% người dùng sẽ đỡ).
+                \item Muốn Power = 0.80 (80\% khả năng phát hiện ra).
+            \end{itemize}
+            
+            $\to$ Kết quả tính toán: Cần \alert{$n \approx 28$}.
+            
+            Nếu thuốc cực tốt ($P_{real} = 0.8$) $\to$ Chỉ cần \alert{$n \approx 14$}.
+        \end{column}
+        
+        \begin{column}{0.48\textwidth}
+            \textbf{Công cụ tính Power:}
+            \begin{itemize}\itemsep0pt
+                \item \textbf{Python:} \texttt{statsmodels.stats.power} (tùy biến class Binomial).
+                \item \textbf{R:} Gói \texttt{pwr} hàm \texttt{power.binom.test()}.
+                \item \textbf{G*Power:} Phần mềm miễn phí phổ biến nhất cho sinh viên/nghiên cứu sinh.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.15cm}
+    \begin{alertblock}{Ghi nhớ}
+        Nếu dữ liệu tuân theo phân phối chuẩn, Sign Test yếu hơn t-test. Nhưng nếu dữ liệu lệch, Sign Test có thể mạnh hơn!
+    \end{alertblock}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
+
+% --- Q10 ---
+\begin{frame}[allowframebreaks, label=q10]{Q10: Các biến thể và mở rộng (Extensions)}
+    \footnotesize
+    \begin{block}{Câu hỏi}
+        Có phiên bản mở rộng nào của Sign Test không? Khi nào dùng?
+    \end{block}
+    
+    \vspace{0.2cm}
+    \textbf{Các "người anh em" của Sign Test:}
+    
+    \begin{enumerate}\itemsep0pt
+        \item \textbf{McNemar Test:}
+        \begin{itemize}\itemsep0pt
+            \item Dùng cho dữ liệu \textbf{Nhị phân (Binary)}: 0/1, Đậu/Trượt, Bệnh/Khỏi.
+            \item Thiết kế bảng 2x2 contingency.
+            \item Vẫn là so sánh Trước/Sau (Paired).
+        \end{itemize}
+        
+        \item \textbf{Friedman Test:}
+        \begin{itemize}\itemsep0pt
+            \item Mở rộng cho \textbf{nhiều hơn 2 nhóm} (VD: Đo cân nặng tại T1, T2, T3).
+            \item Dùng dữ liệu xếp hạng (Ranked data).
+            \item Được coi là phiên bản phi tham số của ANOVA lặp lại (Repeated Measures ANOVA).
+        \end{itemize}
+        
+        \item \textbf{Cochran's Q Test:}
+        \begin{itemize}\itemsep0pt
+            \item Giống Friedman nhưng dùng cho dữ liệu Nhị phân (Binary).
+            \item Mở rộng của McNemar cho nhiều nhóm.
+        \end{itemize}
+    \end{enumerate}
+    
+    \vspace{0.2cm}
+    \begin{block}{Sơ đồ quyết định (Decision Tree)}
+        \begin{itemize}\itemsep0pt
+            \item Data liên tục/thứ bậc, 2 nhóm $\to$ \structure{Sign Test} (hoặc Wilcoxon).
+            \item Data nhị phân, 2 nhóm $\to$ \structure{McNemar Test}.
+            \item Data liên tục/thứ bậc, >2 nhóm $\to$ \structure{Friedman Test}.
+            \item Data nhị phân, >2 nhóm $\to$ \structure{Cochran's Q}.
+        \end{itemize}
+    \end{block}
+    \vfill \hfill \hyperlink{qna_menu}{\beamerbutton{Quay lại Menu}}
+\end{frame}
