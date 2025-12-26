@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.31)  20 DEC 2025 11:40
+This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.10.31)  20 DEC 2025 14:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1112,16 +1112,28 @@ y)
 \c@defn=\count397
  (./main.aux
 
-! LaTeX Error: Missing \begin{document}.
+LaTeX Warning: Label `q5<1>' multiply defined.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.121 \
-       
-You're in trouble here.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+
+LaTeX Warning: Label `q5' multiply defined.
+
+
+LaTeX Warning: Label `q8<1>' multiply defined.
+
+
+LaTeX Warning: Label `q8' multiply defined.
+
+
+LaTeX Warning: Label `q9<1>' multiply defined.
+
+
+LaTeX Warning: Label `q9' multiply defined.
+
+
+LaTeX Warning: Label `q10<1>' multiply defined.
+
+
+LaTeX Warning: Label `q10' multiply defined.
 
 )
 \openout1 = `main.aux'.
@@ -1315,8 +1327,7 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \c@lstlisting=\count398
-
-No file main.nav.
+ (./main.nav)
 
 LaTeX Font Warning: Font shape `TU/lmss/m/sc' in size <10> not available
 (Font)              Font shape `TU/lmr/m/sc' tried instead on input line 133.
@@ -1347,37 +1358,26 @@ LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <10> not available
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <7> not available
 (Font)              Font shape `TU/lmss/m/sl' tried instead on input line 133.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 
 [1
 
-]
+] (./main.toc)
 
-[2]
-No file main.toc.
-
-Class beamer Warning: Frame text is shrunk by a factor of 4393.5028 percent ins
-tead of 10 percent on input line 141.
-
-
-
-[3
+[2
 
 ] (./sections/01_history_motivation.tex
 File: figures/arbuthnot_timeline.png Graphic file (type bmp)
 <figures/arbuthnot_timeline.png>
 
 
-[4
+[3
 
 ]
 File: figures/historical_applications.png Graphic file (type bmp)
 <figures/historical_applications.png>
 
 
-[5
+[4
 
 ]
 LaTeX Font Info:    Font shape `TU/lmss/m/it' in size <9> not available
@@ -1571,7 +1571,7 @@ If that doesn't work, type  X <return>  to quit.
 
 
 
-[6
+[5
 
 ]) (./sections/02_theory.tex
 LaTeX Font Info:    Font shape `TU/lmss/bx/it' in size <8> not available
@@ -1582,7 +1582,7 @@ Overfull \vbox (43.76755pt too high) detected at line 48
 
 
 
-[7
+[6
 
 ]
 
@@ -1642,7 +1642,7 @@ Overfull \vbox (8.17392pt too high) detected at line 95
 
 
 
-[8
+[7
 
 ]
 
@@ -1663,7 +1663,7 @@ Underfull \vbox (badness 10000) detected at line 129
 
 
 
-[9
+[8
 
 ]
 Underfull \vbox (badness 10000) detected at line 129
@@ -1671,7 +1671,7 @@ Underfull \vbox (badness 10000) detected at line 129
 
 
 
-[10
+[9
 
 
 ]) (./sections/03_examples.tex
@@ -1777,7 +1777,7 @@ Underfull \vbox (badness 10000) detected at line 62
 
 
 
-[11
+[10
 
 ]
 Underfull \vbox (badness 10000) detected at line 62
@@ -1785,7 +1785,7 @@ Underfull \vbox (badness 10000) detected at line 62
 
 
 
-[12
+[11
 
 
 ]
@@ -1810,7 +1810,7 @@ Underfull \vbox (badness 10000) detected at line 104
 
 
 
-[13
+[12
 
 ]
 Underfull \vbox (badness 10000) detected at line 104
@@ -1818,13 +1818,30 @@ Underfull \vbox (badness 10000) detected at line 104
 
 
 
-[14
+[13
 
 
 ]
 File: figures/color_preference.png Graphic file (type bmp)
 <figures/color_preference.png>
 
+Underfull \vbox (badness 10000) detected at line 140
+ []
+
+
+
+[14
+
+]
+Underfull \vbox (badness 10000) detected at line 140
+ []
+
+
+
+[15
+
+
+]
 
 ! Package xcolor Error: Undefined color `hustgreen'.
 
@@ -1832,29 +1849,99 @@ See the xcolor package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.155 \end{frame}
+l.160 \end{frame}
                  
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
+! Missing } inserted.
+<inserted text> 
+                }
+l.160 \end{frame}
+                 
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
 
-Underfull \vbox (badness 10000) detected at line 155
- []
 
-
-
-[15
-
-]
-Underfull \vbox (badness 10000) detected at line 155
+Underfull \vbox (badness 10000) detected at line 160
  []
 
 
 
 [16
 
+]
+Underfull \vbox (badness 10000) detected at line 160
+ []
 
-]) (./sections/04_demo_jupyter.tex
+
+
+[17
+
+
+]
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.160 \end{frame}
+                 
+Things are pretty mixed up, but I think the worst is over.
+
+! Too many }'s.
+<inserted text> ...efalse \color@endgroup \egroup 
+                                                  \expandafter \@iiiparbox \...
+l.160 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+! Undefined control sequence.
+<inserted text> ...pandafter \@iiiparbox \@mpargs 
+                                                  {\unvbox \@tempboxa }\endg...
+l.160 \end{frame}
+                 
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+! Argument of \@iiiparbox has an extra }.
+<inserted text> 
+                \par 
+l.160 \end{frame}
+                 
+I've run across a `}' that doesn't seem to match anything.
+For example, `\def\a#1{...}' and `\a}' would produce
+this error. If you simply proceed now, the `\par' that
+I've just inserted will cause me to report a runaway
+argument that might be the root of the problem. But if
+your `}' was spurious, just type `2' and it will go away.
+
+Runaway argument?
+\endgroup \hfill \beamer@todoend \endgroup \@ignoretrue \endgroup  \beamer@colc
+lose \ETC.
+! Paragraph ended before \@iiiparbox was complete.
+<to be read again> 
+                   \par 
+l.160 \end{frame}
+                 
+I suspect you've forgotten a `}', causing me to apply this
+control sequence to too much text. How can we recover?
+My plan is to forget the whole thing and hope for the best.
+
+! Too many }'s.
+<recently read> }
+                 
+l.160 \end{frame}
+                 
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+) (./sections/04_demo_jupyter.tex
 \openout4 = `main.vrb'.
 
  (./main.vrb
@@ -1864,3 +1951,245 @@ File: lstlang1.sty 2024/09/23 1.10c listings language file
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <7> not available
 (Font)              Font shape `TU/lmtt/b/n' tried instead on input line 12.
 File: figures/jupyter_cell1_output.png Graphic file (type bmp)
+<figures/jupyter_cell1_output.png>
+)
+Overfull \vbox (113.32674pt too high) detected at line 33
+ []
+
+
+
+[18
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb
+File: figures/jupyter_output_table.png Graphic file (type bmp)
+<figures/jupyter_output_table.png>
+)
+Overfull \vbox (94.46336pt too high) detected at line 59
+ []
+
+
+
+[19
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb
+File: figures/jupyter_output_stats.png Graphic file (type bmp)
+<figures/jupyter_output_stats.png>
+)
+Overfull \vbox (35.09904pt too high) detected at line 87
+ []
+
+
+
+[20
+
+]
+\openout4 = `main.vrb'.
+
+ (./main.vrb
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <5> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 17.
+File: figures/jupyter_plots.png Graphic file (type bmp)
+<figures/jupyter_plots.png>
+)
+
+[21
+
+]) (./sections/05_faqs.tex
+Underfull \vbox (badness 10000) detected at line 50
+ []
+
+
+
+[22
+
+]
+Underfull \vbox (badness 10000) detected at line 50
+ []
+
+
+
+[23
+
+
+]
+Underfull \vbox (badness 10000) detected at line 96
+ []
+
+
+
+[24
+
+]
+Underfull \vbox (badness 10000) detected at line 96
+ []
+
+
+
+[25
+
+
+]) (./sections/06_conclusion.tex
+
+Class beamer Warning: Frame text is shrunk by a factor of 9.03625 percent inste
+ad of 5 percent on input line 40.
+
+
+Underfull \vbox (badness 10000) detected at line 40
+ []
+
+
+
+[26
+
+]
+Underfull \vbox (badness 10000) detected at line 40
+ []
+
+
+
+[27
+
+
+]
+File: figures/qr_code_github.png Graphic file (type bmp)
+<figures/qr_code_github.png>
+
+
+Class beamer Warning: Frame text is shrunk by a factor of 19.29626 percent inst
+ead of 5 percent on input line 77.
+
+
+Underfull \vbox (badness 10000) detected at line 77
+ []
+
+
+
+[28
+
+]
+Underfull \vbox (badness 10000) detected at line 77
+ []
+
+
+
+[29
+
+
+]) (./sections/07_qna.tex
+
+[30
+
+]
+! Undefined control sequence.
+\insertbuttontext ->\icon 
+                          {list} Quay lại Menu
+l.75 \end{frame}
+                
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+
+[31
+
+]
+
+[32
+
+]
+
+[33
+
+]
+
+[34
+
+]
+
+[35
+
+]
+
+[36
+
+
+]
+
+[37
+
+]
+
+[38
+
+]
+
+[39
+
+]
+
+[40
+
+
+]
+
+[41
+
+]
+
+[42
+
+
+]
+
+[43
+
+]
+
+[44
+
+
+])
+
+[45
+
+]
+\tf@nav=\write6
+\openout6 = `main.nav'.
+
+\tf@toc=\write7
+\openout7 = `main.toc'.
+
+\tf@snm=\write8
+\openout8 = `main.snm'.
+
+ (./main.aux)
+ ***********
+LaTeX2e <2024-11-01> patch level 2
+L3 programming layer <2025-01-18>
+ ***********
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 1B8A75D57743610FF7B803C89399AD9C;3486.
+ ) 
+Here is how much of TeX's memory you used:
+ 34208 strings out of 473832
+ 744470 string characters out of 5729480
+ 1451484 words of memory out of 5000000
+ 56535 multiletter control sequences out of 15000+600000
+ 574021 words of font info for 147 fonts, out of 8000000 for 9000
+ 1348 hyphenation exceptions out of 8191
+ 128i,15n,123p,417b,1490s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+Output written on main.pdf (45 pages).

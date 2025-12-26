@@ -119,11 +119,11 @@
         {\footnotesize
         \renewcommand{\arraystretch}{1.2}
         \begin{tabular}{rl}
-            \textbf{Đào Duy Tân} & 20251334M\\
-            \textbf{Nguyễn Đức Dũng} & 20251240M\\
             \textbf{Trương Tuấn Nghĩa} & 20251196M\\
+            \textbf{Nguyễn Đức Dũng} & 20251240M\\
+            \textbf{Đào Duy Tân} & 20251334M\\
             \textbf{Hồ Hải Anh} & 20252102M\\
-            \textbf{Đinh Lâm Nghị} & 20241116M
+            \textbf{Nguyễn Bá Đại} & 20252104M
         \end{tabular}
         }
         
@@ -168,17 +168,26 @@
 % =========================================================
 % 8. KẾT THÚC
 % =========================================================
-\begin{frame}[standout]
-    \centering
-    \Huge \textcolor{white}{CÂU HỎI?}\\[1cm]
+% =========================================================
+% 8. KẾT THÚC (FIX LỖI CHỮ TRẮNG NỀN TRẮNG)
+% =========================================================
+{
+    % Đặt màu nền cho riêng slide này thành Đỏ HUST
+    \setbeamercolor{background canvas}{bg=hustred}
     
-    \normalsize
-    \textcolor{white}{Cảm ơn Thầy và các bạn đã lắng nghe!}\\[0.5cm]
-    
-    \small
-    \textbf{Liên hệ:}\\
-    Trương Tuấn Nghĩa: nghia.tt251196m@sis.hust.edu.vn\\
-    GitHub: \url{https://github.com/yourusername/sign-test-demo}
-\end{frame}
+    \begin{frame}[plain] % plain để bỏ header/footer
+        \centering
+        \vspace{1cm}
+
+        
+        \Large \textcolor{white}{Cảm ơn Thầy và các bạn đã lắng nghe!}\\[1cm]
+        
+        \small \textcolor{white}{
+            \textbf{Liên hệ:}\\
+            Trương Tuấn Nghĩa: nghia.tt251196m@sis.hust.edu.vn\\
+            GitHub: \url{https://github.com/TatcataiTTN/Sign-Test-Midterm}
+        }
+    \end{frame}
+}
 
 \end{document}
